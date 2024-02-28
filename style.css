@@ -1,0 +1,14 @@
+#map {
+    height: 700px;
+    width: 100%;
+  }
+  
+  .timelist {
+    height: 100px;
+    width: 350px;
+    border: 1px solid red;
+    color: black;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
