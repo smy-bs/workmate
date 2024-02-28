@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workmate</title>
+  </head>
+  <body>
+    <h1>Workmate</h1>
+    <p>
+      [Ver.2] 도시를 선택하고 Check를 누르면 랜덤 업무시간이 생성되고, Convert
+      누르면 내 타임존에 맞춘 시간이 계산됨.
+    </p>
+    <label for="mainUserCity">메인 유저의 도시 선택:</label>
+    <select id="mainUserCity">
+      <option value="Seoul">서울</option>
+      <option value="Paris">파리</option>
+      <option value="Melbourne">멜버른</option>
+      <option value="Sydney">시드니</option>
+      <option value="Perth">퍼스</option>
+    </select>
+    <button onclick="saveMainUserCity()">Check</button>
+
+    <div id="otherCities">
+      <h2>My mate's schedule</h2>
+    </div>
+
+    <div id="convertButton" style="display: none">
+      <button onclick="convertHours()">Convert</button>
+    </div>
+    <div id="availability"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+    <script>
+      const mainUserCitySelect = document.getElementById("mainUserCity");
+      const otherCitiesDiv = document.getElementById("otherCities");
+      const convertButtonDiv = document.getElementById("convertButton");
+
+      const cityTimezones = {
+        Seoul: "Asia/Seoul",
+        Paris: "Europe/Paris",
+        Melbourne: "Australia/Melbourne",
+        Sydney: "Australia/Sydney",
+        Perth: "Australia/Perth",
+      };
+
+      let mainUserCityTimezone = "Asia/Seoul";
+      let cityWorkingHours = {};
+
+      function saveMainUserCity() {
+        mainUserCityTimezone = cityTimezones[mainUserCitySelect.value];
+        generateOtherCities();
+        convertButtonDiv.style.display = "block"; // 저장 후에 변환하기 버튼 표시
+      }
+
+      function generateRandomHours() {
+        const startHour = Math.floor(Math.random() * 24);
+        const endHour =
+          Math.floor(Math.random() * (24 - startHour)) + startHour + 1; // 최소 한 시간간격 유지
+        return {
+          start: startHour.toString().padStart(2, "0") + ":00",
+          end: endHour.toString().padStart(2, "0") + ":00",
+        };
+      }
+
+      function generateRandomUser(city) {
+        const userNames = [
+          "Emma",
+          "Noah",
+          "Olivia",
+          "Liam",
+          "Ava",
+          "William",
+          "Sophia",
+          "Mason",
+          "Isabella",
+          "James",
+        ];
+        const randomIndex = Math.floor(Math.random() * userNames.length);
+        return userNames[randomIndex];
+      }
+
+      function generateOtherCities() {
+        const mainUserCity = mainUserCitySelect.value;
+        const otherCities = Object.keys(cityTimezones).filter(
+          (city) => city !== mainUserCity
+        );
+        cityWorkingHours = {};
+        otherCities.forEach((city) => {
+          const randomHours = generateRandomHours();
+          const randomUser = generateRandomUser(city);
+          cityWorkingHours[city] = { ...randomHours, user: randomUser };
+        });
+        displayOtherCities();
+      }
+
+      function displayOtherCities() {
+        otherCitiesDiv.innerHTML = "<h2>My mate's schedule</h2>";
+        for (const city in cityWorkingHours) {
+          const userCity = cityWorkingHours[city].user + " (" + city + ")";
+          const start = cityWorkingHours[city].start;
+          const end = cityWorkingHours[city].end;
+          otherCitiesDiv.innerHTML += `<p>${userCity}: ${start} - ${end}</p>`;
+        }
+      }
+
+      function convertHours() {
+        const mainUserCity = mainUserCitySelect.value;
+        const mainUserCityTimezone = cityTimezones[mainUserCity];
+        const availabilityDiv = document.getElementById("availability");
+        availabilityDiv.innerHTML = "<h2>Work with Me</h2>"; // 변환 시간 타이틀 추가
+        for (const city in cityWorkingHours) {
+          const cityHours = convertTime(
+            cityWorkingHours[city],
+            "HH:mm",
+            cityTimezones[city],
+            mainUserCityTimezone
+          );
+          const userCity = cityWorkingHours[city].user + " (" + city + ")";
+          const start = cityHours.start;
+          const end = cityHours.end;
+          availabilityDiv.innerHTML += `<p>${userCity}: ${start} - ${end}</p>`;
+        }
+      }
+
+      function convertTime(hours, format, fromTimezone, toTimezone) {
+        const start = moment
+          .tz(hours.start, format, fromTimezone)
+          .tz(toTimezone)
+          .format("HH:mm");
+        const end = moment
+          .tz(hours.end, format, fromTimezone)
+          .tz(toTimezone)
+          .format("HH:mm");
+        return { start, end };
+      }
+    </script>
+  </body>
+</html>

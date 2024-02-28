@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workmate</title>
+  </head>
+  <body>
+    <h1>Workmate</h1>
+    <p>
+      [Ver.1] 도시를 선택하면 자동으로 랜덤 업무시간이 생성되고 함께 내 타임존에
+      맞춘 시간이 계산됨.
+    </p>
+    <label for="mainUserCity">메인 유저의 도시 선택:</label>
+    <select id="mainUserCity" onchange="displayWorkHours()">
+      <option value="Seoul">서울</option>
+      <option value="Paris">파리</option>
+      <option value="Melbourne">멜버른</option>
+      <option value="Sydney">시드니</option>
+      <option value="Perth">퍼스</option>
+    </select>
+
+    <div id="workHours">
+      <h2>My mate's schedule</h2>
+      <!-- <p>Original schedule</p> -->
+      <ul id="originalHours"></ul>
+    </div>
+
+    <div id="convertedHours">
+      <h2>Work with Me</h2>
+      <!-- <p>Converted</p> -->
+      <ul id="convertedList"></ul>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+    <script>
+      const mainUserCitySelect = document.getElementById("mainUserCity");
+      const originalHoursList = document.getElementById("originalHours");
+      const convertedHoursList = document.getElementById("convertedList");
+
+      const cityTimezones = {
+        Seoul: "Asia/Seoul",
+        Paris: "Europe/Paris",
+        Melbourne: "Australia/Melbourne",
+        Sydney: "Australia/Sydney",
+        Perth: "Australia/Perth",
+      };
+
+      let mainUserCityTimezone = "Asia/Seoul";
+      let cityWorkingHours = {};
+
+      function generateRandomHours() {
+        const startHour = Math.floor(Math.random() * 24);
+        const endHour =
+          Math.floor(Math.random() * (24 - startHour)) + startHour + 1; // 최소 한 시간간격 유지
+        return {
+          start: startHour.toString().padStart(2, "0") + ":00",
+          end: endHour.toString().padStart(2, "0") + ":00",
+        };
+      }
+
+      function generateRandomUser(city) {
+        const userNames = [
+          "Emma",
+          "Noah",
+          "Olivia",
+          "Liam",
+          "Ava",
+          "William",
+          "Sophia",
+          "Mason",
+          "Isabella",
+          "James",
+        ];
+        const randomIndex = Math.floor(Math.random() * userNames.length);
+        return userNames[randomIndex];
+      }
+
+      function displayWorkHours() {
+        const mainUserCity = mainUserCitySelect.value;
+        mainUserCityTimezone = cityTimezones[mainUserCity];
+        cityWorkingHours = {};
+        originalHoursList.innerHTML = "";
+        convertedHoursList.innerHTML = "";
+
+        for (const city in cityTimezones) {
+          if (city !== mainUserCity) {
+            const randomHours = generateRandomHours();
+            const randomUser = generateRandomUser(city);
+            const convertedHours = convertTime(
+              randomHours,
+              mainUserCityTimezone,
+              cityTimezones[city]
+            );
+            cityWorkingHours[city] = {
+              ...randomHours,
+              user: randomUser,
+              converted: convertedHours,
+            };
+
+            const originalItem = document.createElement("li");
+            originalItem.textContent = `${randomUser} (${city}): ${randomHours.start} - ${randomHours.end}`;
+            originalHoursList.appendChild(originalItem);
+
+            const convertedItem = document.createElement("li");
+            convertedItem.textContent = `${randomUser} (${city}): ${convertedHours.start} - ${convertedHours.end}`;
+            convertedHoursList.appendChild(convertedItem);
+          }
+        }
+      }
+
+      function convertTime(hours, fromTimezone, toTimezone) {
+        const start = moment
+          .tz(hours.start, "HH:mm", fromTimezone)
+          .tz(toTimezone)
+          .format("HH:mm");
+        const end = moment
+          .tz(hours.end, "HH:mm", fromTimezone)
+          .tz(toTimezone)
+          .format("HH:mm");
+        return { start, end };
+      }
+    </script>
+  </body>
+</html>
