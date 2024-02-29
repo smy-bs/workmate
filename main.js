@@ -63,21 +63,21 @@ function createAddToCalendarButton(countryTime,countryTimeList) {
     countryTimeList.appendChild(addButton);
 }
 
-function createGoogleCalendarEvent(eventDetails) {
+function createGoogleCalendarEvent(countryTime) {
     // 구글 캘린더 API 엔드포인트 URL
     const apiUrl = 'https://www.googleapis.com/calendar/v3/calendars/primary/events';
     
     // 이벤트 생성에 필요한 데이터
     const eventData = {
-        summary: eventDetails.summary,
-        description: eventDetails.description,
+        summary: 'Country Time Event',
+        description: 'Event added from country time info',
         start: {
-            dateTime: eventDetails.startDateTime,
-            timeZone: eventDetails.timeZone
+            dateTime: new Date().toISOString(),
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
         },
         end: {
-            dateTime: eventDetails.endDateTime,
-            timeZone: eventDetails.timeZone
+            dateTime: new Date().toISOString(),
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
         }
     };
 
@@ -85,7 +85,7 @@ function createGoogleCalendarEvent(eventDetails) {
     fetch(apiUrl, {
         method: 'POST',
         headers: {
-            'Authorization': '126718981060-mcfkesl8pl5k9qb8vhpbtalhni185tst.apps.googleusercontent.com', // 여기에는 구글 OAuth2 인증을 통해 발급받은 엑세스 토큰을 사용합니다.
+            'Authorization': 'Bearer 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', // 여기에는 구글 OAuth2 인증을 통해 발급받은 엑세스 토큰을 사용합니다.
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(eventData)
@@ -98,8 +98,6 @@ function createGoogleCalendarEvent(eventDetails) {
         console.error('구글 캘린더에 이벤트를 추가하는 중 오류가 발생했습니다.', error);
     });
 }
-
-
 
 function getTimezone(lat, lng) {
     return new Promise((resolve, reject) => {
@@ -119,14 +117,46 @@ function getTimezone(lat, lng) {
             });
     });
 }
+
 function updateCountryTimeList(countryTimes, countryTimeList) {
-    // 기존 리스트를 지우고 새로운 리스트로 대체합니다.
+    // 기존 리스트를 지우고 새로운 테이블을 생성합니다.
     countryTimeList.innerHTML = "";
-    countryTimes.forEach(countryTime => {
-        const listItem = document.createElement('li');
-        listItem.textContent = countryTime;
-        countryTimeList.appendChild(listItem);
+    
+    // 테이블 요소를 생성합니다.
+    const table = document.createElement('table');
+
+     // 테이블 스타일을 설정합니다.
+     table.style.borderCollapse = 'collapse';
+     table.style.width = '100%';
+     table.style.border = '2px solid black';
+    
+    // 테이블 헤더를 추가합니다.
+    const headerRow = table.insertRow();
+    const headers = ['Label', 'Country', 'Current Time'];
+    headers.forEach(headerText => {
+        const header = document.createElement('th');
+        header.textContent = headerText;
+        header.style.border = '1px solid black';
+        header.style.padding = '8px';
+        headerRow.appendChild(header);
     });
+
+
+ // 각 나라의 시간 정보를 테이블에 추가합니다.
+ countryTimes.forEach(countryTime => {
+    const [label, name, currentTime] = countryTime.split(' - ');
+    const row = table.insertRow();
+    [label, name, currentTime].forEach(text => {
+        const cell = row.insertCell();
+        cell.textContent = text;
+        cell.style.border = '1px solid black';
+        cell.style.padding = '8px';
+    });
+});
+
+// 테이블을 countryTimeList에 추가합니다.
+countryTimeList.appendChild(table);
 }
+
 // initMap() 함수 호출
 initMap();
