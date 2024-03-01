@@ -1,23 +1,106 @@
 body {
-    background-color: #f0f2f3;
-  }
-  
-  .lexend {
-    font-family: "Lexend", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-  }
-  
-  .workmate-navy-fill {
-    background-color: #344767;
-  }
-  
-  .workmate-navy-line {
-    border: #344767;
-  }
-  
-  .workmate-navy-color {
-    color: #344767;
-  }
-  
+  background-color: #f0f2f3;
+}
+
+.lexend {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.workmate-navy-fill {
+  background-color: #344767;
+}
+
+.workmate-navy-line {
+  border: #344767;
+}
+
+.workmate-navy-color {
+  color: #344767;
+}
+
+.nav .profile-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #344767;
+  overflow: hidden;
+}
+
+.nav .profile-img img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.user-profile .profile-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #344767;
+  overflow: hidden;
+}
+
+#map {
+  height: 70vh;
+  width: 100%;
+}
+
+.timelist {
+  height: 100px;
+  width: 350px;
+  border: 1px solid red;
+  color: black;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #f2f2f2;
+}
+.time-slot {
+  font-weight: bold;
+}
+.available {
+  background-color: lightgreen;
+}
+.unavailable {
+  background-color: #ffcccc;
+}
+
+/* Main */
+/* Index */
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent 50%, black 50%);
+  background-size: 8px 2px; /* 점선 간격 조절 */
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* 원 모양으로 곡선을 만듭니다 */
+  background: linear-gradient(to right, transparent 50%, black 50%);
+  transform: translateY(-50%);
+}
