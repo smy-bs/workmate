@@ -1,0 +1,23 @@
+body {
+    background-color: #f0f2f3;
+  }
+  
+  .lexend {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+  
+  .workmate-navy-fill {
+    background-color: #344767;
+  }
+  
+  .workmate-navy-line {
+    border: #344767;
+  }
+  
+  .workmate-navy-color {
+    color: #344767;
+  }
+  
