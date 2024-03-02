@@ -145,8 +145,11 @@
         <h6 class="card-title">요약</h6>
         <div id="overlap-summary"></div>
     </div>
+    <!-- 메일 보내기 버튼 -->
+<button id="send-email-btn">메일 보내기</button>
 </div>
 </div>
+
 
         </div>
       </div>
@@ -167,5 +170,14 @@
       <!-- 자바스크립트 파일 링크 -->
    <script src="map.js"></script>
    <script src="script.js"></script>
+
+   <script>
+    // 메일 보내기 버튼 클릭 이벤트 핸들러 등록
+    document.getElementById("send-email-btn").addEventListener("click", function () {
+      // 클라이언트에서는 서버로 요청을 보내어 메일을 보내도록 가정하고, 클라이언트 측에서는 메일을 직접 보내지 않습니다.
+      // 서버 측에서의 처리를 대신하는 메시지를 알람창에 표시합니다.
+      alert('메일이 보내졌습니다.');
+    });
+    </script>
   </body>
 </html>

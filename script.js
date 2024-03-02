@@ -147,4 +147,22 @@ document
     }
   });
 
- 
+ // 요약된 정보를 메일로 보내는 함수
+function sendSummaryByEmail() {
+  // 여기에 요약된 정보를 메일로 보내는 코드를 작성합니다.
+  // 예시로 간단한 알림창을 띄웁니다.
+  alert('메일로 요약된 정보를 보냈습니다.');
+  
+  // 요약된 정보를 화면에서 지웁니다.
+  const overlapInfoTable = document.getElementById("overlap-info-table");
+  overlapInfoTable.innerHTML = '';
+
+  const overlapSummary = document.getElementById("overlap-summary");
+  overlapSummary.innerHTML = '';
+}
+
+// 메일로 보내기 버튼 클릭 이벤트 핸들러 등록
+document.getElementById("send-email-btn").addEventListener("click", function () {
+  // 요약된 정보를 메일로 보냅니다.
+  sendSummaryByEmail();
+});
