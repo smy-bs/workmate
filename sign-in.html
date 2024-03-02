@@ -1,203 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="favicon.png" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Sign in page for Workmate
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
-</head>
-
-<body class="">
-  <div class="container position-sticky z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
-          <div class="container-fluid">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-              Argon Dashboard 2
-            </a>
-            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon mt-2">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navigation">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/profile.html">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-up.html">
-                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                    Sign Up
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-in.html">
-                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                    Sign In
-                  </a>
-                </li>
-              </ul>
-              <ul class="navbar-nav d-lg-block d-none">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/product/argon-dashboard" class="btn btn-sm mb-0 me-1 btn-primary">Free Download</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!-- End Navbar -->
-      </div>
-    </div>
-  </div>
-  <main class="main-content  mt-0">
-    <section>
-      <div class="page-header min-vh-100">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
-              <div class="card card-plain">
-                <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">Sign In</h4>
-                  <p class="mb-0">Enter your email and password to sign in</p>
-                </div>
-                <div class="card-body">
-                  <form role="form">
-                    <div class="mb-3">
-                      <input type="email" id="signInEmail" class="form-control form-control-lg" placeholder="Email" aria-label="Email" autocomplete="username">
-                    </div>
-                    <div class="mb-3">
-                      <input type="password" id="signInPassword"class="form-control form-control-lg" placeholder="Password" aria-label="Password" autocomplete="current-password">
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div>
-                    <div class="text-center">
-                      <button id="signUpButton" type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
-
-                    </div>
-                  </form>
-                </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </div>
+  <body class="d-flex align-items-center p-5 mx-auto bg-body-tertiary vsc-initialized" data-new-gr-c-s-check-loaded="14.1157.0" data-gr-ext-installed="">
+    <div class="container">
+      <div class="row justify-content-start mt-5">
+        <div class="col-lg-6 col-md-8 col-10">
+          <main class="form-signin w-100 m-auto" style="max-width: 400px">
+            <form id="loginForm">
+              <div class="text-center">
+                <img src="img/logo_dark.svg" alt="" />
               </div>
-            </div>
-            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
-          background-size: cover;">
-                <span class="mask bg-gradient-primary opacity-6"></span>
-                <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
-                <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p>
-              </div>
-            </div>
-          </div>
+
+        <h4 class="mb-3 fw-normal lexend workmate-blue-color">Sign in</h4>
+        <p>Enter your email and password to sign in</p>
+        <div class="form-floating mb-2">
+          <input
+            type="email"
+            class="form-control"
+            id="signInEmail"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Email address</label>
         </div>
-      </div>
-    </section>
-  </main>
-  <!--   Core JS Files   -->
-  <script type="module">
-    document.addEventListener('DOMContentLoaded', (event) => {
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="signInPassword"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="form-check text-start my-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value="remember-me"
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Remember me
+          </label>
+        </div>
+        <!-- Remove unnecessary </button> tag -->
+        <button class="btn btn-secondary text-white w-100 py-2" type="submit" id="signInButton">Sign in</button>
+
+
+        <main class="main-content  mt-0">
+          <div class="container">
+            <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+              <div class="row px-xl-5 px-sm-4 px-3">
+                <div class="col-3 ms-auto px-1">
+                  <a class="btn btn-outline-light w-100" href="javascript:;">
+                    <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
+                      <!-- SVG Content -->
+                    </svg>
+                  </a>
+                </div>
+                <div class="col-3 px-1">
+                  <a class="btn btn-outline-light w-100" href="javascript:;">
+                    <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
+                      <!-- SVG Content -->
+                    </svg>
+                  </a>
+                </div>
+                <div class="col-3 me-auto px-1">
+                  <a class="btn btn-outline-light w-100" id="googleLogin" href="javascript:;">
+                    <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
+                      <!-- SVG Content -->
+                    </svg>
+                  </a>
+                </div>
+                <div class="text-center p-3">
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                
+      </form>
+      <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+    background-size: cover;">
+          <span class="mask bg-gradient-primary opacity-6"></span>
+      <script
+      src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <deepl-input-controller></deepl-input-controller
+    ><scribe-shadow
+      id="crxjs-ext"
+      style="
+        position: fixed;
+        width: 0px;
+        height: 0px;
+        top: 0px;
+        left: 0px;
+        z-index: 2147483647;
+        overflow: visible;
+      "
+    ></scribe-shadow>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    </main>
+    <!-- Bootstrap Bundle from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
+
+    <!-- Firebase SDKs and Custom JavaScript -->
+    <script type="module">
       // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-  
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+      import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
       // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyCH_qQKgvX04MCiInM0t-1el2gXoNc9YpI",
-        authDomain: "easylogin-69172.firebaseapp.com",
-        projectId: "easylogin-69172",
-        storageBucket: "easylogin-69172.appspot.com",
-        messagingSenderId: "507786873248",
-        appId: "1:507786873248:web:a4effc2440a8e81bfbfcc5",
-        measurementId: "G-X3G15GWG5T"
-      };
-  
+        const firebaseConfig = {
+        apiKey: "AIzaSyCUHQA0WupWsm7bz0UL5Ls44i6ucXuinJQ",
+        authDomain: "login-3f517.firebaseapp.com",
+        projectId: "login-3f517",
+        storageBucket: "login-3f517.appspot.com",
+        messagingSenderId: "415522244614",
+        appId: "1:415522244614:web:d38e52847278502048db87",
+        measurementId: "G-98FRRR00T7"
+    };
+
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-  
-      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-  
       const auth = getAuth();
-  
-      document.getElementById('signUpButton').addEventListener('click', (event) => {
-          event.preventDefault()
-          const signUpEmail = document.getElementById('signUpEmail').value
-          const signUpPassword = document.getElementById('signUpPassword').value
-  
-          createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-              .then((userCredential) => {
-                  console.log(userCredential)
-                  // Signed in
-                  const user = userCredential.user;
-                  // ...
-              })
-              .catch((error) => {
-                  console.log('error')
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  // ..
-              });
-  
-      })
-  
-      document.getElementById('signInButton').addEventListener('click', (event) => {
-          event.preventDefault()
-          const signInEmail = document.getElementById('signInEmail').value
-          const signInPassword = document.getElementById('signInPassword').value
-          signInWithEmailAndPassword(auth, signInEmail, signInPassword)
-              .then((userCredential) => {
-                  // Signed in
-                  console.log(userCredential)
-                  const user = userCredential.user;
-                  // ...
-              })
-              .catch((error) => {
-                  console.log('로그인 실패')
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-              });
-  
-      })
-    });
-  </script>
-  
-</body>
 
+      // Add event listener to sign-in button
+      document.getElementById('signInButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        const signInEmail = document.getElementById('signInEmail').value;
+        const signInPassword = document.getElementById('signInPassword').value;
+        signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+          .then((userCredential) => {
+            console.log(userCredential);
+            const user = userCredential.user;
+            window.location.href = "map.html";
+          })
+          .catch((error) => {
+            console.log('로그인 실패');
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      });
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        
+    });
+    </script>
+
+  </body>
 </html>
