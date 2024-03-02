@@ -20,7 +20,9 @@
         <div class="text-center">
           <img src="img/logo_dark.svg" alt="" />
         </div>
-        <h1 class="h3 mb-3 fw-normal lexend">Sign in</h1>
+
+        <h4 class="mb-3 fw-normal lexend workmate-blue-color">Sign in</h4>
+        <p>Enter your email and password to sign in</p>
         <div class="form-floating mb-2">
           <input
             type="email"
@@ -80,8 +82,9 @@
                     </svg>
                   </a>
                 </div>
-                <a href="signup.html">sign up</a>
-                <p class="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
+                <div class="text-center p-3">
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                
       </form>
 
     </main>
@@ -136,15 +139,7 @@
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // 로그인 성공 시 세션 스토리지에 이메일 정보 저장
-                sessionStorage.setItem('email', email);
-                window.location.href = 'map.html';
-            })
-            .catch((error) => {
-                console.error(error.message);
-            });
+        
     });
     </script>
 
