@@ -2,6 +2,10 @@ body {
   background-color: #f0f2f3;
 }
 
+.bg-lightgray {
+  background-color: #f0f2f3;
+}
+
 .lexend {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
@@ -19,8 +23,65 @@ body {
 .workmate-navy-color {
   color: #344767;
 }
+.workmate-blue-fill {
+  background-color: #5e72e4;
+}
 
-.nav .profile-img {
+.workmate-blue-line {
+  border: #5e72e4;
+}
+
+.workmate-blue-color {
+  color: #5e72e4;
+}
+
+.workmate-lightblue-fill {
+  background-color: #69b4e4;
+}
+
+.workmate-lightblue-line {
+  border: #69b4e4;
+}
+
+.workmate-lightblue-color {
+  color: #69b4e4;
+}
+
+.btn:hover {
+  background-color: #344767;
+}
+
+/* index */
+
+/* Main */
+
+/* 이미지 컨테이너에 대한 스타일링 */
+.image-container {
+  position: relative; /* 자식 요소를 포지셔닝하기 위해 부모 요소를 상대적으로 설정합니다 */
+}
+
+/* 선의 스타일링 */
+.line {
+  position: absolute;
+  top: 25%; /* 이미지 컨테이너의 세로 중앙에 선을 배치합니다 */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent 50%, black 50%);
+  background-size: 8px 2px; /* 점선 간격 조절 */
+}
+
+.line-1 {
+  right: 50%;
+  left: 50%;
+}
+
+#id img {
+  z-index: 999;
+}
+
+.nav .profile-img,
+.user-profile .profile-img {
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -28,22 +89,17 @@ body {
   overflow: hidden;
 }
 
-.nav .profile-img img {
+.nav img {
   max-width: 100%;
   max-height: 100%;
   display: block;
 }
 
-.user-profile .profile-img {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: #344767;
-  overflow: hidden;
-}
+/* map */
 
 #map {
-  height: 70vh;
+  height: 50vh;
+  max-height: 600px;
   width: 100%;
 }
 
@@ -78,29 +134,4 @@ th {
 }
 .unavailable {
   background-color: #ffcccc;
-}
-
-/* Main */
-/* Index */
-
-.line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-image: linear-gradient(to right, transparent 50%, black 50%);
-  background-size: 8px 2px; /* 점선 간격 조절 */
-}
-
-.line::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%; /* 원 모양으로 곡선을 만듭니다 */
-  background: linear-gradient(to right, transparent 50%, black 50%);
-  transform: translateY(-50%);
 }
