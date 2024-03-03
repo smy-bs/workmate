@@ -55,43 +55,6 @@ body {
 
 /* Main */
 
-/* 이미지 컨테이너에 대한 스타일링 */
-/* .image-container {
-  position: relative; 
-  height: 100vh;
-} */
-/* 
-#main img {
-  display: none;
-} */
-
-/* 선의 스타일링 */
-.image-container::before,
-.image-container::after,
-.image-container > .line-vertical,
-.image-container > .line-horizontal {
-  content: "";
-  position: absolute;
-
-  height: 2px;
-  background-image: linear-gradient(to right, transparent 50%, black 50%);
-  background-size: 10px 5px; /* 점선 간격 조절 */
-  transform: rotate(-20deg);
-}
-
-.image-container::before {
-  width: 60vw;
-  top: 560px;
-  left: 10rem;
-  transform: rotate(-30deg);
-}
-
-.line-1 {
-  width: 70vw;
-  left: 8vw;
-  top: 500px;
-}
-
 #main img {
   z-index: 999;
 }
