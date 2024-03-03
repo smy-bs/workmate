@@ -1,0 +1,170 @@
+body {
+  background-color: #f0f2f3;
+}
+
+.bg-lightgray {
+  background-color: #f0f2f3;
+}
+
+.lexend {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.workmate-navy-fill {
+  background-color: #344767;
+}
+
+.workmate-navy-line {
+  border: #344767;
+}
+
+.workmate-navy-color {
+  color: #344767;
+}
+.workmate-blue-fill {
+  background-color: #5e72e4;
+}
+
+.workmate-blue-line {
+  border: #5e72e4;
+}
+
+.workmate-blue-color {
+  color: #5e72e4;
+}
+
+.workmate-lightblue-fill {
+  background-color: #69b4e4;
+}
+
+.workmate-lightblue-line {
+  border: #69b4e4;
+}
+
+.workmate-lightblue-color {
+  color: #69b4e4;
+}
+
+.btn:hover {
+  background-color: #1e2b41;
+}
+
+/* index */
+
+/* Main */
+
+/* 이미지 컨테이너에 대한 스타일링 */
+/* .image-container {
+  position: relative; 
+  height: 100vh;
+} */
+/* 
+#main img {
+  display: none;
+} */
+
+/* 선의 스타일링 */
+.image-container::before,
+.image-container::after,
+.image-container > .line-vertical,
+.image-container > .line-horizontal {
+  content: "";
+  position: absolute;
+
+  height: 2px;
+  background-image: linear-gradient(to right, transparent 50%, black 50%);
+  background-size: 10px 5px; /* 점선 간격 조절 */
+  transform: rotate(-20deg);
+}
+
+.image-container::before {
+  width: 60vw;
+  top: 560px;
+  left: 10rem;
+  transform: rotate(-30deg);
+}
+
+.line-1 {
+  width: 70vw;
+  left: 8vw;
+  top: 500px;
+}
+
+#main img {
+  z-index: 999;
+}
+
+.nav .profile-img,
+.user-profile .profile-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #344767;
+  overflow: hidden;
+}
+
+.nav img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/* map */
+
+#map {
+  height: 50vh;
+  max-height: 600px;
+  width: 100%;
+}
+
+.timelist {
+  height: 100px;
+  width: 350px;
+  border: 1px solid red;
+  color: black;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #f2f2f2;
+}
+.time-slot {
+  font-weight: bold;
+}
+.available {
+  background-color: lightgreen;
+}
+.unavailable {
+  background-color: #ffcccc;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.card-header,
+.btn {
+  background-color: #344767;
+}
+.btn {
+  color: #ffffff;
+}
